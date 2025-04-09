@@ -1,0 +1,12 @@
+/* ==================== STYLE MAIN LAYOUT ==================== */
+.main-content-main-layout {
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.main-content-main-layout.collapsed {
+    margin-left: 60px;
+}
+
+.main-content-main-layout.expanded {
+    margin-left: 34vh;
+}

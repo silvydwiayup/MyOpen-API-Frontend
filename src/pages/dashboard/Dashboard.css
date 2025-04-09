@@ -1,3 +1,4 @@
+/* ==================== STYLE DASHBOARD ==================== */
 .app-layout {
     display: flex;
 }
@@ -5,5 +6,4 @@
 .main-content {
     flex: 1;
     transition: margin-left 0.3s ease-in-out;
-    /* margin-left: 18vh; */
 }

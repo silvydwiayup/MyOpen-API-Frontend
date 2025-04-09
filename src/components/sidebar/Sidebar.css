@@ -7,8 +7,8 @@
     position: fixed;
     width: 34vh;
     height: 100vh;
-    background-color: #fff;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--Primary-Background-Color);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 2;
     transition: width 0.3s ease-in-out;
 }
@@ -23,7 +23,7 @@
 }
 
 .container-title-sidebar .title-sidebar {
-    font-size: 1.5em;
+    font-size: var(--font-xl);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -49,7 +49,7 @@
     width: 30px;
     height: 3px;
     border-radius: 5px;
-    background-color: #365CF5;
+    background-color: var(--Primary-Color);
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
@@ -77,17 +77,19 @@
     width: 70%;
     height: 80%;
     border-radius: 5px;
-    background-color: #365CF5;
-    color: #ffffff;
+    background-color: var(--Primary-Color);
+    color: var(--Secondary-Background-Color);
     border: none;
 }
 
 .btn-sidebar-create-project {
     width: 100%;
     height: 80%;
+    font-size: var(--font-sm);
+    font-weight: 500;
     border-radius: 5px;
-    background-color: #365CF5;
-    color: #ffffff;
+    background-color: var(--Primary-Color);
+    color: var(--Secondary-Background-Color);
     border: none;
     white-space: nowrap;
     overflow: hidden;
@@ -102,12 +104,12 @@
     width: 90%;
     height: 80%;
     border-radius: 5px;
-    background-color: #365CF5;
+    background-color: var(--Primary-Color);
 }
 
 .container-sidebar-btn-create .sidebar-btn-create-icon {
-    font-size: 20px;
-    color: #ffffff;
+    font-size: 18px;
+    color: var(--Secondary-Background-Color);
 }
 
 /* ==================== SIDEBAR MENU ==================== */
@@ -118,7 +120,7 @@
 }
 
 .sidebar-item {
-    margin-bottom: 10px;
+    margin-bottom: 1px;
 }
 
 .sidebar-link {
@@ -127,17 +129,18 @@
     gap: 10px;
     padding: 10px 10px;
     text-decoration: none;
-    color: black;
+    color: var(--Active-Color);
     border-radius: 8px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .sidebar-link:hover {
-    background-color: #e0e0e0;
-    color: #365CF5;
+    background-color: #e5e5e5;
+    color: var(--Primary-Color);
 }
 
 .menu-text {
+    font-size: var(--font-md);
     transition: opacity 0.3s ease;
 }
 
@@ -148,7 +151,7 @@
 }
 
 .sidebar-menu-icon {
-    color: #365CF5;
+    color: var(--Primary-Color);
     font-size: 20px;
     min-width: 20px;
     transition: color 0.3s ease;
@@ -158,11 +161,20 @@
     list-style: none;
     margin-top: 6px;
     margin-bottom: 10px;
-    padding: 6px 0;
-    border-left: 2px solid #e0e0e0;
-    background-color: #f9f9f9;
+    border-left: 2px solid #cccccc;
+    border-top: 2px solid #cccccc;
+    background-color: #e9e9e9;
     border-radius: 6px;
-    transition: all 0.3s ease;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.submenu-sidebar.active {
+    max-height: 200px;
+    opacity: 1;
+    padding: 6px 0;
 }
 
 .submenu-link {
@@ -171,15 +183,17 @@
     box-sizing: border-box;
     padding: 8px 16px;
     text-decoration: none;
-    color: #333;
-    font-size: 14px;
+    color: var(--Active-Color);
+    font-size: var(--font-sm);
     border-radius: 4px;
     margin: 2px 0;
     background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .submenu-link:hover {
-    background-color: #eaeaea;
+    background-color: #f9f9f9;
+    color: var(--Primary-Color);
 }
 
 .sidebar-submenu-icon {
@@ -207,7 +221,7 @@
 }
 
 .active-text {
-    color: #365CF5;
+    color: var(--Primary-Color);
 }
 
 /* ==================== STYLE SIDEBAR Collapsed ==================== */
@@ -237,7 +251,7 @@
     top: 0;
     left: 55px;
     z-index: 100;
-    background-color: #fff;
+    background-color: var(--Secondary-Background-Color);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     min-width: 160px;
     border-radius: 8px;
@@ -247,4 +261,9 @@
 
 .sidebar-item.collapsed-hover .submenu-sidebar.active {
     display: block;
+}
+
+.sidebar-item.collapsed-hover .submenu-link:hover {
+    background-color: #e5e5e5;
+    color: var(--Primary-Color);
 }
