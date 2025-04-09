@@ -1,11 +1,12 @@
 import './App.css'
-import Sidebar from './components/sidebar/Sidebar'
+import Top_Navbar from './components/top_navbar/Top_Navbar'
+
 
 function App() {
   
   return (
     <>
-      <Sidebar/>
+      <Top_Navbar/>
     </>
   )
 }
