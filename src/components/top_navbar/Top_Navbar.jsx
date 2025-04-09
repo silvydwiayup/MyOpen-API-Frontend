@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 
 const Top_Navbar = ({ user }) => {
     return <Container_Top_Navbar user={user} />;
-};
+  };
 
 const Container_Top_Navbar = () => {
   const [showNotif, setShowNotif] = useState(false);

@@ -5,38 +5,27 @@
     justify-content: flex-end;
     align-items: center;
     padding: 10px 40px;
-    background-color: #ffffff;
+    background-color: var(--Primary-Background-Color);
     gap: 20px;
-    border-bottom: 1px solid gray;
 }
-  
+    
 .container-icon {
     position: relative;
     width: 40px;
     height: 40px;
-    background-color: #f5f5f5;
+    background-color: var(--Secondary-Background-Color);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-}
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);}
   
 .icon {
-    font-size: 18px;
-    color: #1a1a1a;
+    font-size: var(--font-xl);
+    color: var(--Active-Color);
 }
-  
-.dot {
-    position: absolute;
-    top: 6px;
-    right: 6px;
-    width: 8px;
-    height: 8px;
-    background-color: red;
-    border-radius: 50%;
-}
-  
+
 .container-profile {
     display: flex;
     align-items: center;
@@ -49,12 +38,19 @@
     border-radius: 50%;
     object-fit: cover;
 }
+
+.profile-img:hover {
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
   
 .notif-header {
     font-weight: 600;
-    font-size: 16px;
+    font-size: var(--font-md);
     margin-bottom: 10px;
-    color: #333;
+    color: var(--Primary-Color);
 }
   
 .notif-list {
@@ -64,7 +60,7 @@
 }
   
 .notif-item {
-    font-size: 14px;
+    font-size: var(--font-sm);
     padding: 8px 0;
     border-bottom: 1px solid #eee;
 }
@@ -95,7 +91,7 @@
     position: absolute;
     top: 60px;
     right: 80px;
-    background-color: #fff;
+    background-color: var(--Secondary-Background-Color);
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     padding: 16px;
@@ -108,22 +104,20 @@
     position: absolute;
     top: -4px;
     right: -4px;
-    background-color: red;
+    background-color: var(--Primary-Color);
     color: white;
-    font-size: 10px;
+    font-size: var(--font-xs);
     padding: 2px 6px;
     border-radius: 999px;
     font-weight: bold;
     line-height: 1;
 }
   
-
-
 .profile-dropdown {
     position: absolute;
     top: 60px;
     right: 20px;
-    background-color: #fff;
+    background-color: var(--Secondary-Background-Color);
     width: 220px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
@@ -149,8 +143,8 @@
 }
     
 .dropdown-email {
-    font-size: 12px;
-    color: #000000;
+    font-size: var(--font-xs);
+    color: var(--Active-Color);
     margin: 0;
     font-weight: bold;
 }
@@ -163,14 +157,14 @@
   
 .dropdown-menu li {
     padding: 10px 12px;
-    font-size: 14px;
+    font-size: var(--font-sm);
     border-radius: 8px;
     transition: background 0.2s ease;
     cursor: pointer;
 }
   
 .dropdown-menu li:hover {
-    background-color: #f2f2f2;
+    background-color: var(--Primary-Hover);
 }
 
 .menu-icon {
@@ -179,5 +173,120 @@
     vertical-align: middle;
 }
   
+
+/* ======== Responsive Styles ======== */
+
+@media screen and (max-width: 1024px) {
+    .top-navbar {
+      padding: 10px 30px;
+      gap: 16px;
+    }
   
+    .notif-container,
+    .profile-dropdown {
+      top: 55px;
+      width: 260px;
+      padding: 14px;
+    }
+  
+    .dropdown-avatar {
+      width: 44px;
+      height: 44px;
+    }
+}
+  
+@media screen and (max-width: 768px) {
+    .top-navbar {
+      padding: 10px 20px;
+      gap: 14px;
+    }
+  
+    .container-icon,
+    .container-profile {
+      width: 36px;
+      height: 36px;
+    }
+  
+    .profile-img {
+      width: 36px;
+      height: 36px;
+    }
+  
+    .notif-container,
+    .profile-dropdown {
+      width: 240px;
+      right: 16px;
+    }
+  
+    .dropdown-avatar {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .dropdown-menu li {
+      font-size: var(--font-xs);
+    }
+}
+  
+@media screen and (max-width: 480px) {
+    .top-navbar {
+      padding: 8px 12px;
+      gap: 10px;
+    }
+  
+    .container-icon,
+    .container-profile {
+      width: 38px;
+      height: 38px;
+      /* background-color: aquamarine; */
+    }
+  
+    .icon {
+      font-size: var(--font-lg);
+    }
+  
+    .profile-img {
+      width: 38px;
+      height: 38px;
+    }
+  
+    .notif-container,
+    .profile-dropdown {
+      width: 200px;
+      right: 10px;
+      padding: 12px;
+    }
+  
+    .notif-header {
+      font-size: var(--font-sm);
+    }
+  
+    .notif-item {
+      font-size: var(--font-xs);
+    }
+  
+    .dropdown-avatar {
+      width: 36px;
+      height: 36px;
+    }
+  
+    .dropdown-email {
+      font-size: var(--font-xs);
+    }
+  
+    .dropdown-menu li {
+      font-size: var(--font-xs);
+      padding: 8px 10px;
+    }
+  
+    .menu-icon {
+      font-size: 14px;
+      margin-right: 8px;
+    }
+  
+    .dot-badge {
+      font-size: 12px;
+      padding: 1px 5px;
+    }
+}
   
