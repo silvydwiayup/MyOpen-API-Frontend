@@ -267,3 +267,11 @@
     background-color: #e5e5e5;
     color: var(--Primary-Color);
 }
+
+
+/* ==================== STYLE RESPONSIVE LAYOUT ==================== */
+@media screen and (max-width: 380px) {
+    .container-sidebar {
+        width: 28vh;
+    }
+}

@@ -5,33 +5,44 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
-
     const [showProjectsSubmenu, setShowProjectsSubmenu] = useState(false);
     const sidebarRef = useRef(null);
+    const containerRef = useRef(null);
     const location = useLocation();
 
     useEffect(() => {
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+            setIsCollapsed(true);
+        }
+    }, []);
+    
+    useEffect(() => {
         const handleClickOutside = (event) => {
-            if (
-                sidebarRef.current &&
-                !sidebarRef.current.contains(event.target) &&
-                isCollapsed &&
-                showProjectsSubmenu
-            ) {
+            const isMobile = window.innerWidth <= 768;
+            const clickedOutsideSidebar = containerRef.current && !containerRef.current.contains(event.target);
+            const clickedOutsideSubmenu = sidebarRef.current && !sidebarRef.current.contains(event.target);
+    
+            if (!isCollapsed && clickedOutsideSidebar && isMobile) {
+                setIsCollapsed(true);
+            }
+    
+            if (isCollapsed && showProjectsSubmenu && clickedOutsideSubmenu) {
                 setShowProjectsSubmenu(false);
             }
         };
-
+    
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [isCollapsed, showProjectsSubmenu]);
+    
 
 
     return (
         <div className={`section-sidebar ${isCollapsed ? "collapsed" : ""}`}>
-            <div className={`container-sidebar ${isCollapsed ? "collapsed" : ""}`}>
+            <div ref={containerRef} className={`container-sidebar ${isCollapsed ? "collapsed" : ""}`}>
                 <div className="container-title-sidebar">
                     <h1 className="title-sidebar">{!isCollapsed && "MyOpen-API"}</h1>
                     <button

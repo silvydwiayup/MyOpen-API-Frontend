@@ -10,3 +10,14 @@
 .main-content-main-layout.expanded {
     margin-left: 34vh;
 }
+
+/* ==================== STYLE RESPONSIVE LAYOUT ==================== */
+@media screen and (max-width: 768px) {
+    .main-content-main-layout.collapsed {
+        margin-left: 60px;
+    }
+    
+    .main-content-main-layout.expanded {
+        margin-left: 60px;
+    }
+}
