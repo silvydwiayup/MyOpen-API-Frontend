@@ -1,6 +1,8 @@
 /* ==================== STYLE MAIN LAYOUT ==================== */
 .main-content-main-layout {
+    width: 100%;
     transition: margin-left 0.3s ease-in-out;
+    padding-top: 8vh;
 }
 
 .main-content-main-layout.collapsed {
