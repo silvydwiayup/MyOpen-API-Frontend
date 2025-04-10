@@ -45,22 +45,22 @@ const Container_Top_Navbar = () => {
   return (
     <div className="top-navbar">
       <div
-        className="container-icon"
+        className="container-icon-top-navbar"
         onClick={() => setShowNotif(!showNotif)}
         ref={iconRef}
       >
         {notifList.length > 0 && (
-          <span className="dot-badge">{notifList.length}</span>
+          <span className="dot-badge-top-navbar">{notifList.length}</span>
         )}
-        <FiBell className="icon" />
+        <FiBell className="icon-top-navbar" />
       </div>
 
       {showNotif && (
-        <div className="notif-container" ref={notifRef}>
-          <p className="notif-header">Notifikasi</p>
-          <ul className="notif-list">
+        <div className="notif-container-top-navbar" ref={notifRef}>
+          <p className="notif-header--top-navbar">Notifikasi</p>
+          <ul className="notif-list-top-navbar">
             {notifList.map((item, index) => (
-              <li key={index} className="notif-item">
+              <li key={index} className="notif-item-top-navbar">
                 {item}
               </li>
             ))}
@@ -69,36 +69,36 @@ const Container_Top_Navbar = () => {
       )}
 
       <div
-        className="container-profile"
+        className="container-profile-top-navbar"
         onClick={() => setShowProfileMenu(!showProfileMenu)}
         ref={profileRef}
       >
         <img
           src="https://i.pravatar.cc/40"
           alt="profile"
-          className="profile-img"
+          className="profile-img-top-navbar"
         />
 
         {showProfileMenu && (
-          <div className="profile-dropdown">
-            <div className="profile-header">
-                <img src="https://i.pravatar.cc/60" alt="user" className="dropdown-avatar" />
+          <div className="profile-dropdown-top-navbar">
+            <div className="profile-header-top-navbar">
+                <img src="https://i.pravatar.cc/60" alt="user" className="dropdown-avatar-top-navbar" />
                 <div>
-                    <p className="dropdown-email">adamjoe@email.com</p>
+                    <p className="dropdown-email-top-navbar">adamjoe@email.com</p>
                 </div>
             </div>
 
-            <ul className="dropdown-menu">
+            <ul className="dropdown-menu-top-navbar">
                 <li>
-                    <FiUser className="menu-icon" />
+                    <FiUser className="menu-icon-top-navbar" />
                     Lihat Profil
                 </li>
                 <li>
-                    <FiSettings className="menu-icon" />
+                    <FiSettings className="menu-icon-top-navbar" />
                     Pengaturan
                 </li>
                 <li>
-                    <FiLogOut className="menu-icon" />
+                    <FiLogOut className="menu-icon-top-navbar" />
                     Logout
                 </li>
             </ul>
