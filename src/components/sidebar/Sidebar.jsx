@@ -1,14 +1,19 @@
 import "./Sidebar.css";
 import { useState, useEffect, useRef  } from "react";
 import { FaChevronDown, FaChartPie, FaClipboardList, FaPenAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
     const [showProjectsSubmenu, setShowProjectsSubmenu] = useState(false);
     const sidebarRef = useRef(null);
     const containerRef = useRef(null);
     const location = useLocation();
+
+    const navigate = useNavigate();
+
+    const handleCreateProjectClick = () => {
+        navigate('/create-project');
+    };
 
     useEffect(() => {
         const isMobile = window.innerWidth <= 768;
@@ -52,10 +57,15 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
                 </div>
 
                 <div className="container-sidebar-btn-create-project">
-                    <button className="btn-sidebar-create-project">Create Project</button>
-                    <div className="container-sidebar-btn-create">
+                    <button 
+                        className="btn-sidebar-create-project" 
+                        onClick={handleCreateProjectClick}
+                    >
+                        Create Project
+                    </button>
+                    <button className="container-sidebar-btn-create" onClick={handleCreateProjectClick}>
                         <FaPenAlt className="sidebar-btn-create-icon" />
-                    </div>
+                    </button>
                 </div>
 
                 <ul className="sidebar-menu">

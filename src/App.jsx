@@ -2,6 +2,7 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/dashboard/Dashboard";
 import MainLayout from "./layouts/MainLayout";
+import Create_Project from './pages/create_project/Create_Project';
 
 function App() {
   
@@ -15,6 +16,14 @@ function App() {
                             <Dashboard />
                         </MainLayout>
                     }
+                />
+                <Route
+                  path="/create-project"
+                  element={
+                    <MainLayout>
+                      <Create_Project />
+                    </MainLayout>
+                  }
                 />
             </Routes>
         </Router>
