@@ -1,8 +1,7 @@
 import "./Sidebar.css";
 import { useState, useEffect, useRef  } from "react";
 import { FaChevronDown, FaChartPie, FaClipboardList, FaPenAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
     const [showProjectsSubmenu, setShowProjectsSubmenu] = useState(false);
