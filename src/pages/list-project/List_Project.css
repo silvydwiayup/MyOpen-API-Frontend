@@ -1,4 +1,4 @@
-/* ==================== STYLE CONTAINER LIST PROJECT ==================== */
+/* ==================== STYLE SIDEBAR ==================== */
 .section-list-project {
     width: 100%;
     min-height: 92vh;
@@ -14,7 +14,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: antiquewhite; */
 }
 
 .container-title-list-project {
@@ -61,6 +60,8 @@
     padding-right: 1em;
 }
 
+/* ==================== container-list-project-Header ==================== */
+
 .list-project-header {
     height: 5em;
     width: 95%;
@@ -105,22 +106,37 @@
     transform: translate(-50%, -50%) scale(1);
 }
 
-.list-project-body {
+/* ==================== container-list-project-body ==================== */
+.container-list-project-body {
     width: 95%;
     background-color: white;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 1em;
+    padding-right: 1em;
+    overflow: hidden;
+}
+
+/* ==================== Table ==================== */
+.table-scroll-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .table-list-project-body {
     width: 100%;
     border-collapse: collapse;
-    font-size: 1em;
+}
+
+.table-thead-list-project {
+    width: 100%;
 }
 
 .table-row-head-list-project-body {
+    width: 100%;
     border-bottom: 1px solid #ddd;
     transition: background-color 0.3s ease;
+    font-size: 1em;
 }
 
 .table-head-list-project-body {
@@ -142,83 +158,166 @@
     text-align: left;
     vertical-align: middle;
     position: relative;
-    overflow: visible
+    overflow: visible;
 }
 
+/* ==================== Switch Toggle ==================== */
 .switch-table-list-project {
     position: relative;
     display: inline-block;
-    width: 46px;
-    height: 24px;
+    width: 44px;
+    height: 22px;
 }
-  
+
 .switch-table-list-project input {
     opacity: 0;
     width: 0;
     height: 0;
 }
-  
+
 .slider-round-table-list-project {
     position: absolute;
     cursor: pointer;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: #ccc;
+    background-color: #c22222;
     transition: background-color 0.4s;
     border-radius: 24px;
 }
-  
+
 .slider-round-table-list-project::before {
     position: absolute;
     content: "";
-    height: 18px;
-    width: 18px;
+    height: 15px;
+    width: 15px;
     left: 3px;
-    bottom: 3px;
+    bottom: 3.5px;
     background-color: white;
     transition: transform 0.4s;
     border-radius: 50%;
 }
-  
+
 .switch-table-list-project input:checked + .slider-round-table-list-project {
     background-color: var(--Primary-Color);
 }
-  
+
 .switch-table-list-project input:checked + .slider-round-table-list-project::before {
     transform: translateX(22px);
 }
 
-.table-data-icon-list-project {
+/* ==================== Dropdown ==================== */
+.center-icon {
     cursor: pointer;
     font-size: 1.4em;
     transition: color 0.3s ease;
 }
 
-
-.dropdown-action-list-project {
-    position: absolute;
-    top: 40px;
-    left: 0;
-    background-color: white;
-    box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
-    border-radius: 6px;
-    z-index: 10;
-    min-width: 120px;
+.icon-container:hover {
+    transition: color 0.1s ease-in-out;
+    color: #1441f4;
 }
 
-.dropdown-item {
-    padding: 10px;
+.dropdown-outside {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    width: 120px; /* <- Sesuaikan dengan yang di JS */
+}
+
+.dropdown-outside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-outside ul li {
+    font-size: 0.9em;
+    padding: 8px 12px;
     cursor: pointer;
     transition: background 0.2s;
 }
 
-.dropdown-item:hover {
-    background-color: #f0f0f0;
+.dropdown-outside ul li:hover {
+    background-color: #f2f2f2;
 }
 
+/* ==================== container-list-project-Bottom ==================== */
+
 .list-project-bottom {
-    height: 5em;
+    height: 7em;
     width: 95%;
     background-color: white;
     border-radius: 0 0 10px 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== STYLE RESPONSIVE ==================== */
+@media screen and (max-width: 768px) {
+    .container-list-project-body {
+        width: 95%;
+        padding: 0.5em;
+        overflow-y: auto;
+        max-height: 90vh;
+        /* min-width: 300px; */
+    }
+
+    .table-row-head-list-project-body {
+        font-size: var(--font-sm);
+    }
+
+    .table-list-project-body {
+        min-width: 600px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container-list-project-body {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container-list-project-body {
+        padding: 0.5em;
+    }
+
+    .container-title-and-path-list-project {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5em;
+        height: auto;
+        margin-bottom: 1.5em;
+        padding-top: 1.2em; 
+    }
+
+    .container-title-list-project {
+        margin-top: 0.5em;
+    }
+
+    .container-path-list-project {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .unordered-list-list-project {
+        flex-wrap: wrap;
+        font-size: 0.85em;
+    }
+
+    .list-project-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5em;
+        height: auto;
+        padding-top: 1em;
+        padding-bottom: 1em;
+      }
+    
+    .btn-create-list-project {
+        width: 50%;
+        max-width: 10em;
+        min-width: 8em;
+    }
 }

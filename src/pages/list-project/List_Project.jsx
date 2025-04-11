@@ -1,36 +1,47 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./List_Project.css"
+import "./List_Project.css";
 import { FaEllipsisH } from "react-icons/fa";
 
-const ListProject = ({}) => {
-    return (
-        <ContainerListProject/>
-    );
+const ListProject = () => {
+    return <ContainerListProject />;
 };
 
-const ContainerListProject = ({}) => {
-    const [showDropdown, setShowDropdown] = useState(false);
-    const [dropdownIndex, setDropdownIndex] = useState(null);
+const ContainerListProject = () => {
+    
+    const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0 });
+    const [activeDropdown, setActiveDropdown] = useState(null);
+    const iconRefs = useRef([]);
     const dropdownRef = useRef(null);
 
-    const handleDropdownClick = (index) => {
-        if (dropdownIndex === index) {
-            setDropdownIndex(null);
-            setShowDropdown(false);
+    const toggleDropdown = (index, direction = "left") => {
+        if (activeDropdown === index) {
+            setActiveDropdown(null);
         } else {
-            setDropdownIndex(index);
-            setShowDropdown(true);
+            const rect = iconRefs.current[index].getBoundingClientRect();
+            const dropdownWidth = 120;
+
+            let top = rect.bottom + window.scrollY;
+            let left = 0;
+
+            if (direction === "right") {
+                left = rect.right + window.scrollX;
+            } else if (direction === "left") {
+                left = rect.left - dropdownWidth - 0 + window.scrollX;
+            }
+
+            setDropdownPos({ top, left });
+            setActiveDropdown(index);
         }
     };
 
+    // ✅ Detect click outside dropdown or icon
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (
-                dropdownRef.current &&
-                !dropdownRef.current.contains(event.target)
-            ) {
-                setShowDropdown(false);
-                setDropdownIndex(null);
+            const isClickInsideDropdown = dropdownRef.current?.contains(event.target);
+            const isClickOnIcon = iconRefs.current.some((ref) => ref?.contains(event.target));
+
+            if (!isClickInsideDropdown && !isClickOnIcon) {
+                setActiveDropdown(null);
             }
         };
 
@@ -56,7 +67,7 @@ const ContainerListProject = ({}) => {
             updated_at: "2025-04-10",
             status: "Inactive",
             toggle: false
-        }
+        },
     ];
 
     return (
@@ -83,57 +94,70 @@ const ContainerListProject = ({}) => {
                 <h3>List Project</h3>
                 <button className="btn-create-list-project">Create Project</button>
             </div>
-            <div className="list-project-body">
-                <table className="table-list-project-body">
-                    <thead>
-                        <tr className="table-row-head-list-project-body">
-                            <th className="table-head-list-project-body">Label</th>
-                            <th className="table-head-list-project-body">Project Name</th>
-                            <th className="table-head-list-project-body">Create On</th>
-                            <th className="table-head-list-project-body">Edit On</th>
-                            <th className="table-head-list-project-body">Status</th>
-                            <th className="table-head-list-project-body">Toggle</th>
-                            <th className="table-head-list-project-body">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {list_projects.map((item, index) => (
-                            <tr key={index} className="table-row-data-list-project-body">
-                                <td className="table-data-list-project">{item.label}</td>
-                                <td className="table-data-list-project">{item.name}</td>
-                                <td className="table-data-list-project">{item.created_at}</td>
-                                <td className="table-data-list-project">{item.updated_at}</td>
-                                <td className="table-data-list-project">{item.status}</td>
-                                <td className="table-data-list-project">
-                                    <label className="switch-table-list-project">
-                                        <input type="checkbox" defaultChecked={item.toggle} />
-                                        <span className="slider-round-table-list-project"></span>
-                                    </label>
-                                </td>
-                                <td className="table-data-list-project">
-                                    <div ref={dropdownRef}>
-                                        <FaEllipsisH
-                                            className="table-data-icon-list-project"
-                                            onClick={() => handleDropdownClick(index)}
-                                            style={{ cursor: "pointer" }}
-                                        />
-                                        {showDropdown && dropdownIndex === index && (
-                                            <div className="dropdown-action-list-project">
-                                                <div className="dropdown-item">Edit</div>
-                                                <div className="dropdown-item">Delete</div>
-                                                <div className="dropdown-item">Link</div>
-                                            </div>
-                                        )}
-                                    </div>
-                                </td>
+            <div className="container-list-project-body">
+                <div className="table-scroll-wrapper">
+                    <table className="table-list-project-body">
+                        <thead className="table-thead-list-project">
+                            <tr className="table-row-head-list-project-body">
+                                <th className="table-head-list-project-body">Label</th>
+                                <th className="table-head-list-project-body">Project Name</th>
+                                <th className="table-head-list-project-body">Create On</th>
+                                <th className="table-head-list-project-body">Edit On</th>
+                                <th className="table-head-list-project-body">Status</th>
+                                <th className="table-head-list-project-body">Toggle</th>
+                                <th className="table-head-list-project-body">Action</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody className="table-tbody-list-project">
+                            {list_projects.map((item, index) => (
+                                <tr key={index} className="table-row-data-list-project-body">
+                                    <td className="table-data-list-project">{item.label}</td>
+                                    <td className="table-data-list-project">{item.name}</td>
+                                    <td className="table-data-list-project">{item.created_at}</td>
+                                    <td className="table-data-list-project">{item.updated_at}</td>
+                                    <td className="table-data-list-project">{item.status}</td>
+                                    <td className="table-data-list-project">
+                                        <label className="switch-table-list-project">
+                                            <input type="checkbox" defaultChecked={item.toggle} />
+                                            <span className="slider-round-table-list-project"></span>
+                                        </label>
+                                    </td>
+                                    <td className="table-data-list-project">
+                                        <div
+                                            className="icon-container"
+                                            ref={(el) => (iconRefs.current[index] = el)}
+                                            onClick={() => toggleDropdown(index)}
+                                        >
+                                            <FaEllipsisH className="center-icon" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
+            {activeDropdown !== null && (
+                <div
+                    className="dropdown-outside"
+                    ref={dropdownRef}
+                    style={{
+                        position: "absolute",
+                        top: `${dropdownPos.top}px`,
+                        left: `${dropdownPos.left}px`,
+                    }}
+                >
+                    <ul>
+                        <li>Edit</li>
+                        <li>link</li>
+                        <li>Delete</li>
+                    </ul>
+                </div>
+            )}
             <div className="list-project-bottom"></div>
         </div>
     );
-}
+};
 
 export default ListProject;
