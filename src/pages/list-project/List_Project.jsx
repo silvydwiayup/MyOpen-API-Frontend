@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
 import "./List_Project.css";
+import React, { useEffect, useRef, useState } from "react";
 import { FaEllipsisH } from "react-icons/fa";
 
 const ListProject = () => {
@@ -34,7 +34,6 @@ const ContainerListProject = () => {
         }
     };
 
-    // ✅ Detect click outside dropdown or icon
     useEffect(() => {
         const handleClickOutside = (event) => {
             const isClickInsideDropdown = dropdownRef.current?.contains(event.target);

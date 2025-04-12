@@ -4,6 +4,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import MainLayout from "./layouts/MainLayout";
 import Create_Project from './pages/create_project/Create_Project';
 import ListProject from './pages/list-project/List_Project';
+import ListTable from './pages/list-table/List_Table';
 
 function App() {
   
@@ -31,6 +32,14 @@ function App() {
                   element={
                       <MainLayout>
                           <ListProject />
+                      </MainLayout>
+                  }
+                />
+                <Route
+                  path="/projects/list-table"
+                  element={
+                      <MainLayout>
+                          <ListTable />
                       </MainLayout>
                   }
                 />
