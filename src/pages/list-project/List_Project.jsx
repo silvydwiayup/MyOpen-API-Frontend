@@ -92,7 +92,7 @@ const ContainerListProject = () => {
             </div>
             <div className="list-project-header">
                 <h3>List Project</h3>
-                <button className="btn-create-list-project">Create Project</button>
+                <button className="btn-create-list-project">Add New Project</button>
             </div>
             <div className="container-list-project-body">
                 <div className="table-scroll-wrapper">
