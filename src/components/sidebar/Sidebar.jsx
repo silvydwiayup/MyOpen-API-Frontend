@@ -107,7 +107,7 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
                                     <Link to="/projects/list" className="submenu-link">List Projects</Link>
                                 </li>
                                 <li>
-                                    <Link to="/projects/create" className="submenu-link">Create Project</Link>
+                                    <Link to="/projects/list-table" className="submenu-link">List Tables</Link>
                                 </li>
                             </ul>
                         )}
