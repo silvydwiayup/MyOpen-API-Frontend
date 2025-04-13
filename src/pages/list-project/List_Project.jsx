@@ -1,7 +1,7 @@
 import "./List_Project.css";
 import React, { useEffect, useRef, useState } from "react";
 import { FaEllipsisH } from "react-icons/fa";
-import Add_New_Project from "../../pages/add_new_project/Add_New_Project";
+import Add_New_Project from "../../components/modal-list-projects/add_new_project/Add_New_Project";
 
 
 const ListProject = () => {
