@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { FaEllipsisH } from "react-icons/fa";
 import Add_New_Project from "../../components/modal-list-projects/add_new_project/Add_New_Project";
 import Edit_Project from "../../components/modal-list-projects/edit_project/Edit_Project";
-
+import Link_Project from "../../components/modal-list-projects/link_project/Link_Project";
 
 
 const ListProject = () => {
@@ -15,6 +15,9 @@ const ContainerListProject = () => {
     const [showModal, setShowModal] = useState(false);
 
     const [showEditModal, setShowEditModal] = useState(false);
+
+    const [showLinkModal, setShowLinkModal] = useState(false);
+    const [selectedProject, setSelectedProject] = useState(null);
 
 
     const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0 });
@@ -151,6 +154,7 @@ const ContainerListProject = () => {
                         </tbody>
                     </table>
                     <Edit_Project show={showEditModal} setShow={setShowEditModal} />
+                    <Link_Project show={showLinkModal} setShow={setShowLinkModal} />
                 </div>
             </div>
 
@@ -168,13 +172,22 @@ const ContainerListProject = () => {
                         <li
                             onClick={() => {
                             setShowEditModal(true);
-                            setSelectedProject(list_projects[activeDropdown]); // atau sesuai data
-                            setActiveDropdown(null); // untuk menutup dropdown
+                            setSelectedProject(list_projects[activeDropdown]); 
+                            setActiveDropdown(null); 
                             }}
                         >
                             Edit
                         </li>
-                        <li>Link</li>
+                        <li
+                            onClick={() => {
+                                setSelectedProject(list_projects[activeDropdown]); // kirim project yg diklik
+                                setShowLinkModal(true); // tampilkan modal
+                                setActiveDropdown(null); // tutup dropdown
+                            }}
+                            >
+                            Link
+                        </li>
+
                         <li>Delete</li>
                     </ul>
 
