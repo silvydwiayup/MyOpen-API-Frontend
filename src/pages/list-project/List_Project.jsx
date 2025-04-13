@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./List_Project.css";
 import { FaEllipsisH } from "react-icons/fa";
+import Add_New_Project from "../../pages/add_new_project/Add_New_Project";
+
 
 const ListProject = () => {
     return <ContainerListProject />;
@@ -8,6 +10,8 @@ const ListProject = () => {
 
 const ContainerListProject = () => {
     
+    const [showModal, setShowModal] = useState(false);
+
     const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0 });
     const [activeDropdown, setActiveDropdown] = useState(null);
     const iconRefs = useRef([]);
@@ -34,7 +38,6 @@ const ContainerListProject = () => {
         }
     };
 
-    // ✅ Detect click outside dropdown or icon
     useEffect(() => {
         const handleClickOutside = (event) => {
             const isClickInsideDropdown = dropdownRef.current?.contains(event.target);
@@ -92,7 +95,14 @@ const ContainerListProject = () => {
             </div>
             <div className="list-project-header">
                 <h3>List Project</h3>
-                <button className="btn-create-list-project">Add New Project</button>
+                <button
+                    className="btn-create-list-project"
+                    onClick={() => setShowModal(true)}
+                >
+                    Add New Project
+                </button>
+
+                <Add_New_Project show={showModal} setShow={setShowModal} />
             </div>
             <div className="container-list-project-body">
                 <div className="table-scroll-wrapper">
