@@ -245,8 +245,8 @@
     transform: translateY(0);
 }
 
+/* ==================== STYLE RESPONSIVE LAYOUT ==================== */
 
-/* === Responsive: Tablet Landscape dan bawah (max-width: 1024px) === */
 @media screen and (max-width: 1024px) {
     .modal-container-link-project {
         width: 90%;
@@ -271,7 +271,6 @@
     }
 }
 
-/* === Responsive: Tablet Portrait dan bawah (max-width: 768px) === */
 @media screen and (max-width: 768px) {
     .modal-container-link-project {
         width: 90%;
@@ -307,7 +306,6 @@
     }
 }
 
-/* === Responsive: Mobile (max-width: 480px) === */
 @media screen and (max-width: 480px) {
     .modal-container-link-project {
         width: 90%;
