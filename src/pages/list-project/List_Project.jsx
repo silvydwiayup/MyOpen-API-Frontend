@@ -2,6 +2,8 @@ import "./List_Project.css";
 import React, { useEffect, useRef, useState } from "react";
 import { FaEllipsisH } from "react-icons/fa";
 import Add_New_Project from "../../components/modal-list-projects/add_new_project/Add_New_Project";
+import Edit_Project from "../../components/modal-list-projects/edit_project/Edit_Project";
+
 
 
 const ListProject = () => {
@@ -11,6 +13,9 @@ const ListProject = () => {
 const ContainerListProject = () => {
     
     const [showModal, setShowModal] = useState(false);
+
+    const [showEditModal, setShowEditModal] = useState(false);
+
 
     const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0 });
     const [activeDropdown, setActiveDropdown] = useState(null);
@@ -145,6 +150,7 @@ const ContainerListProject = () => {
                             ))}
                         </tbody>
                     </table>
+                    <Edit_Project show={showEditModal} setShow={setShowEditModal} />
                 </div>
             </div>
 
@@ -159,10 +165,19 @@ const ContainerListProject = () => {
                     }}
                 >
                     <ul>
-                        <li>Edit</li>
-                        <li>link</li>
+                        <li
+                            onClick={() => {
+                            setShowEditModal(true);
+                            setSelectedProject(list_projects[activeDropdown]); // atau sesuai data
+                            setActiveDropdown(null); // untuk menutup dropdown
+                            }}
+                        >
+                            Edit
+                        </li>
+                        <li>Link</li>
                         <li>Delete</li>
                     </ul>
+
                 </div>
             )}
             <div className="list-project-bottom"></div>
