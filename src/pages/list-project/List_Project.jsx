@@ -4,6 +4,8 @@ import { FaEllipsisH } from "react-icons/fa";
 import Add_New_Project from "../../components/modal-list-projects/add_new_project/Add_New_Project";
 import Edit_Project from "../../components/modal-list-projects/edit_project/Edit_Project";
 import Link_Project from "../../components/modal-list-projects/link_project/Link_Project";
+import Delete_Project from "../../components/modal-list-projects/delete_project/Delete_Project";
+
 
 
 const ListProject = () => {
@@ -18,6 +20,9 @@ const ContainerListProject = () => {
 
     const [showLinkModal, setShowLinkModal] = useState(false);
     const [selectedProject, setSelectedProject] = useState(null);
+
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+
 
 
     const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0 });
@@ -155,6 +160,7 @@ const ContainerListProject = () => {
                     </table>
                     <Edit_Project show={showEditModal} setShow={setShowEditModal} />
                     <Link_Project show={showLinkModal} setShow={setShowLinkModal} />
+                    <Delete_Project show={showDeleteModal} setShow={setShowDeleteModal} project={selectedProject} />
                 </div>
             </div>
 
@@ -188,7 +194,16 @@ const ContainerListProject = () => {
                             Link
                         </li>
 
-                        <li>Delete</li>
+                        <li
+                            onClick={() => {
+                                setSelectedProject(list_projects[activeDropdown]); // pilih project
+                                setShowDeleteModal(true); // tampilkan modal delete
+                                setActiveDropdown(null); // tutup dropdown
+                            }}
+                            >
+                            Delete
+                        </li>
+
                     </ul>
 
                 </div>
