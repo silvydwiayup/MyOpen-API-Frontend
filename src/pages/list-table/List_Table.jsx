@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { FaRegTrashAlt, FaPen, FaArrowRight } from "react-icons/fa";
 import "./List_Table.css";
+import Delete_Table from '../../components/modal-list-table/delete_table/Delete_Table';
 
 const ListTable = () => {
     return <Container_List_Table />;
@@ -23,6 +24,10 @@ const Container_List_Table = () => {
     ];
 
     const [selectedProjectId, setSelectedProjectId] = useState(null);
+
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [selectedTable, setSelectedTable] = useState(null);
+
 
     useEffect(() => {
         const maxId = Math.max(...list_project.map(p => p.id_project));
@@ -83,9 +88,16 @@ const Container_List_Table = () => {
                                     <td className="table-data-list-table">{item.updated_at}</td>
                                     <td className="table-data-list-table">
                                         <div className="table-data-container-icon-list-table">
-                                            <button className="btn-icon-list-table">
+                                            <button 
+                                                className="btn-icon-list-table"
+                                                onClick={() => {
+                                                    setSelectedTable(item); 
+                                                    setShowDeleteModal(true); 
+                                                }}
+                                                >
                                                 <FaRegTrashAlt className="icon-table-data-list-table danger-color-list-table" />
                                             </button>
+
                                             <button className="btn-icon-list-table">
                                                 <FaPen className="icon-table-data-list-table edit-color-list-table" />
                                             </button>
@@ -108,7 +120,20 @@ const Container_List_Table = () => {
             </div>
 
             <div className="list-table-bottom"></div>
+
+            {showDeleteModal && (
+                <Delete_Table
+                table={selectedTable}
+                setShow={setShowDeleteModal}
+                handleDelete={() => {
+                    console.log("Delete table:", selectedTable);
+                    setShowDeleteModal(false);
+                }}
+                />
+            )}
         </div>
+
+  
     );
 };
 
