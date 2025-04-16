@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { FaRegTrashAlt, FaPen, FaArrowRight } from "react-icons/fa";
 import "./List_Table.css";
 import Delete_Table from '../../components/modal-list-table/delete_table/Delete_Table';
+import Edit_Table from '../../components/modal-list-table/edit_table/Edit_Table';
 
 const ListTable = () => {
     return <Container_List_Table />;
@@ -27,6 +28,9 @@ const Container_List_Table = () => {
 
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [selectedTable, setSelectedTable] = useState(null);
+
+    const [showEditModal, setShowEditModal] = useState(false);
+
 
 
     useEffect(() => {
@@ -98,9 +102,15 @@ const Container_List_Table = () => {
                                                 <FaRegTrashAlt className="icon-table-data-list-table danger-color-list-table" />
                                             </button>
 
-                                            <button className="btn-icon-list-table">
+                                            <button
+                                                className="btn-icon-list-table"
+                                                onClick={() => {
+                                                    setShowEditModal(true);
+                                                }}
+                                            >
                                                 <FaPen className="icon-table-data-list-table edit-color-list-table" />
                                             </button>
+
                                             <button className="btn-icon-list-table">
                                                 <FaArrowRight className="icon-table-data-list-table primary-color-list-table" />
                                             </button>
@@ -123,14 +133,21 @@ const Container_List_Table = () => {
 
             {showDeleteModal && (
                 <Delete_Table
-                table={selectedTable}
-                setShow={setShowDeleteModal}
-                handleDelete={() => {
-                    console.log("Delete table:", selectedTable);
-                    setShowDeleteModal(false);
-                }}
+                    table={selectedTable}
+                    setShow={setShowDeleteModal}
+                    handleDelete={() => {
+                        console.log("Delete table:", selectedTable);
+                        setShowDeleteModal(false);
+                    }}
                 />
             )}
+
+            {showEditModal && (
+                <Edit_Table
+                    onClose={() => setShowEditModal(false)}
+                />
+            )}
+
         </div>
 
   

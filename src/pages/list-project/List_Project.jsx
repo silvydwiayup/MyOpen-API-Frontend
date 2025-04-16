@@ -186,9 +186,9 @@ const ContainerListProject = () => {
                         </li>
                         <li
                             onClick={() => {
-                                setSelectedProject(list_projects[activeDropdown]); // kirim project yg diklik
-                                setShowLinkModal(true); // tampilkan modal
-                                setActiveDropdown(null); // tutup dropdown
+                                setSelectedProject(list_projects[activeDropdown]); 
+                                setShowLinkModal(true); 
+                                setActiveDropdown(null); 
                             }}
                             >
                             Link
@@ -196,9 +196,9 @@ const ContainerListProject = () => {
 
                         <li
                             onClick={() => {
-                                setSelectedProject(list_projects[activeDropdown]); // pilih project
-                                setShowDeleteModal(true); // tampilkan modal delete
-                                setActiveDropdown(null); // tutup dropdown
+                                setSelectedProject(list_projects[activeDropdown]); 
+                                setShowDeleteModal(true); 
+                                setActiveDropdown(null); 
                             }}
                             >
                             Delete
