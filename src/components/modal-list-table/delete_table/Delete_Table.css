@@ -1,0 +1,224 @@
+.modal-overlay-delete-table {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+  
+.modal-container-delete-table {
+    position: relative;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    min-width: 460px;
+    max-width: 90%;
+}
+  
+.btn-close-delete-table {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: transparent;
+    color: #555;
+    border: none;
+    font-size: 24px;
+}
+  
+.btn-close-delete-table:hover {
+    color: red;
+}
+  
+.delete-icon-wrapper-delete-table {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+  
+.delete-icon-table {
+    font-size: 90px;
+    color: #f44336;
+}
+  
+.modal-title-delete-table {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: var(--Active-Color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.modal-description-delete-table {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: aqua; */
+    gap: 5px;
+}
+  
+.modal-footer-delete-table {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    /* background-color: bisque; */
+}
+  
+/* Button Base */
+.btn-cancel-delete-table,
+.btn-confirm-delete-table {
+    position: relative;
+    overflow: hidden;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    border: none;
+    z-index: 0;
+}
+  
+/* Cancel Button */
+.btn-cancel-delete-table {
+    background: #f44336;
+    color: #fff;
+}
+  
+.btn-cancel-delete-table::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 300%;
+    background-color: #b71c1c;
+    transition: transform 0.3s ease-out;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    z-index: -1;
+}
+  
+.btn-cancel-delete-table:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+  
+/* Confirm Button */
+.btn-confirm-delete-table {
+    background: var(--Primary-Color);
+    color: #fff;
+}
+  
+.btn-confirm-delete-table::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 300%;
+    background-color: #1441f4;
+    transition: transform 0.3s ease-out;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    z-index: -1;
+}
+  
+.btn-confirm-delete-table:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+  
+
+@media screen and (max-width: 1024px) {
+    .modal-container-delete-table {
+      min-width: 420px;
+      padding: 28px 20px;
+    }
+  
+    .delete-icon-table {
+      font-size: 80px;
+    }
+  
+    .modal-title-delete-table {
+      font-size: 20px;
+    }
+  
+    .modal-description-delete-table {
+      font-size: 15px;
+    }
+}
+  
+@media screen and (max-width: 768px) {
+    .modal-container-delete-table {
+      min-width: 360px;
+      padding: 24px 18px;
+    }
+  
+    .delete-icon-table {
+      font-size: 72px;
+    }
+  
+    .modal-title-delete-table {
+      font-size: 18px;
+    }
+  
+    .modal-description-delete-table {
+      font-size: 14px;
+    }
+  
+    .btn-cancel-delete-table,
+    .btn-confirm-delete-table {
+      padding: 9px 20px;
+      font-size: 13px;
+    }
+  
+    .modal-footer-delete-table {
+      gap: 12px;
+    }
+}
+  
+@media screen and (max-width: 480px) {
+    .modal-container-delete-table {
+      min-width: 70%;
+      padding: 20px 16px;
+      border-radius: 10px;
+    }
+  
+    .btn-close-delete-table {
+      top: 8px;
+      right: 10px;
+      font-size: 22px;
+    }
+  
+    .delete-icon-table {
+      font-size: 64px;
+    }
+  
+    .modal-title-delete-table {
+      font-size: 17px;
+    }
+  
+    .modal-description-delete-table {
+      font-size: 13px;
+    }
+  
+    .btn-cancel-delete-table,
+    .btn-confirm-delete-table {
+      padding: 8px 18px;
+      font-size: 12px;
+    }
+  
+    .modal-footer-delete-table {
+      flex-direction: row;
+      gap: 10px;
+    }
+}
+  
