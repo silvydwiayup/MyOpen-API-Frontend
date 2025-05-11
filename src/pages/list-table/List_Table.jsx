@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { FaRegTrashAlt, FaPen, FaArrowRight } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 import "./List_Table.css";
 import Delete_Table from '../../components/modal-list-table/delete_table/Delete_Table';
 import Edit_Table from '../../components/modal-list-table/edit_table/Edit_Table';
@@ -9,6 +10,9 @@ const ListTable = () => {
 };
 
 const Container_List_Table = () => {
+
+    const navigate = useNavigate();
+
     const list_table = [
         { label: 1, id_project: 1, name: "User", created_at: "2025-04-10", updated_at: "2025-04-10", toggle: true },
         { label: 2, id_project: 1, name: "Email", created_at: "2025-04-09", updated_at: "2025-04-10", toggle: false },
@@ -111,7 +115,10 @@ const Container_List_Table = () => {
                                                 <FaPen className="icon-table-data-list-table edit-color-list-table" />
                                             </button>
 
-                                            <button className="btn-icon-list-table">
+                                            <button
+                                                className="btn-icon-list-table"
+                                                onClick={() => navigate(`/table/list-object/${item.name.toLowerCase().replace(/\s+/g, '-')}`)}
+                                                >
                                                 <FaArrowRight className="icon-table-data-list-table primary-color-list-table" />
                                             </button>
                                         </div>

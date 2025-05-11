@@ -6,6 +6,7 @@ import Create_Project from './pages/create_project/Create_Project';
 import ListProject from './pages/list-project/List_Project';
 import ListTable from './pages/list-table/List_Table';
 import List_Notification from './pages/list_notification/List_Notification';
+import ListObject from './pages/list-object/LIst_Objects';
 
 function App() {
   
@@ -50,6 +51,14 @@ function App() {
                       <MainLayout>
                           <List_Notification />
                       </MainLayout>
+                  }
+                />
+                <Route
+                  path="/table/list-object/:name"
+                  element={
+                    <MainLayout>
+                      <ListObject />
+                    </MainLayout>
                   }
                 />
             </Routes>
