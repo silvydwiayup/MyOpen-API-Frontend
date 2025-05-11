@@ -1,6 +1,6 @@
 import "./Sidebar.css";
 import { useState, useEffect, useRef  } from "react";
-import { FaChevronDown, FaChartPie, FaClipboardList, FaPenAlt } from "react-icons/fa";
+import { FaChevronDown, FaChartPie, FaClipboardList, FaPenAlt, FaBell } from "react-icons/fa";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
@@ -112,6 +112,20 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
                             </ul>
                         )}
                     </li>
+                    
+                    <li className="sidebar-item">
+                        <Link to="/list-notification" className="sidebar-link">
+                            <FaBell className="sidebar-menu-icon" />
+                            <span
+                                className={`menu-text ${isCollapsed ? "hidden" : ""} ${
+                                    location.pathname === "/" ? "active-text" : ""
+                                }`}
+                                >
+                                Notification
+                            </span>
+                        </Link>
+                    </li>
+                    
                 </ul>
             </div>
         </div>
