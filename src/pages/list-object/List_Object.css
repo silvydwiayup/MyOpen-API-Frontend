@@ -21,6 +21,21 @@
     text-align: left;
 }
 
+.wrapper-title-list-object {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    text-align: left;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.title-list-object-icon {
+    font-size: 1.2em;
+}
+
+
 .container-path-list-object {
     flex: 1;
     display: flex;

@@ -1,7 +1,7 @@
 import "./List_Object.css";
 import React, { useState } from "react";
 import { AiOutlineEdit } from "react-icons/ai";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaTrashAlt, FaArrowLeft } from "react-icons/fa";
 
 const List_Object = () => {
   return <Container_List_Object />;
@@ -109,7 +109,10 @@ const Container_List_Object = () => {
     <div className="section-list-object">
         <div className="container-title-and-path-list-object">
             <div className="container-title-list-object">
-                <h2>List-Object</h2>
+                <div className="wrapper-title-list-object" onClick={() => window.history.back()}>
+                    <FaArrowLeft className="title-list-object-icon"/>
+                    <h2>List-Object</h2>
+                </div>
             </div>
             <div className="container-path-list-object">
                 <ul className="unordered-list-list-object">
