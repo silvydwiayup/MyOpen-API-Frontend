@@ -5,6 +5,7 @@ import MainLayout from "./layouts/MainLayout";
 import Create_Project from './pages/create_project/Create_Project';
 import ListProject from './pages/list-project/List_Project';
 import ListTable from './pages/list-table/List_Table';
+import ListObject from './pages/list-object/LIst_Objects';
 
 function App() {
   
@@ -41,6 +42,14 @@ function App() {
                       <MainLayout>
                           <ListTable />
                       </MainLayout>
+                  }
+                />
+                <Route
+                  path="/table/list-object/:name"
+                  element={
+                    <MainLayout>
+                      <ListObject />
+                    </MainLayout>
                   }
                 />
             </Routes>
