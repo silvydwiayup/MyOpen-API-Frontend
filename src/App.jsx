@@ -7,12 +7,19 @@ import ListProject from './pages/list-project/List_Project';
 import ListTable from './pages/list-table/List_Table';
 import List_Notification from './pages/list_notification/List_Notification';
 import ListObject from './pages/list-object/LIst_Objects';
+import Information from './pages/public/information/Information';
 
 function App() {
   
   return (
     <Router>
             <Routes>
+                <Route
+                    path="/information"
+                    element={
+                            <Information />
+                    }
+                />
                 <Route
                     path="/"
                     element={
