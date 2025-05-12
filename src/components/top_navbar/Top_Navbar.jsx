@@ -1,6 +1,7 @@
 import './Top_Navbar.css';
 import { FiBell, FiUser, FiSettings, FiLogOut } from 'react-icons/fi';
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 const Top_Navbar = ({ user }) => {
     return <Container_Top_Navbar user={user} />;
@@ -90,8 +91,10 @@ const Container_Top_Navbar = () => {
 
             <ul className="dropdown-menu-top-navbar">
                 <li>
-                    <FiUser className="menu-icon-top-navbar" />
-                    Lihat Profil
+                  <Link to="/profile" className="dropdown-link">
+                      <FiUser className="menu-icon-top-navbar" />
+                      Lihat Profil
+                  </Link>
                 </li>
                 <li>
                     <FiSettings className="menu-icon-top-navbar" />

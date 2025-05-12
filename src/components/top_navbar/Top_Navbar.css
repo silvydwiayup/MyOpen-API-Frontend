@@ -176,6 +176,18 @@
     font-size: 16px;
     vertical-align: middle;
 }
+
+.dropdown-link {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  gap: 8px;
+}
+.dropdown-link:hover {
+  color: #007bff;
+}
+
   
 
 /* ======== Responsive Styles ======== */
