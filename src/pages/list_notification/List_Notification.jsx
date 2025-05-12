@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import './List_Notification.css';
 
 const List_Notification = () => {
@@ -30,24 +29,14 @@ const List_Notification = () => {
         </div>
 
         <div className="notification-list">
-          <AnimatePresence>
             {notifications.map((notif, index) => (
-              <motion.div
-                key={index}
-                className="list-notification-wrapper"
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 30 }}
-              >
                 <div className="list-notification-item">
                   <div className="list-notification-text">
                     <p className="list-notification-message">{notif.message}</p>
                     <span className="list-notification-time">{notif.time}</span>
                   </div>
                 </div>
-              </motion.div>
             ))}
-          </AnimatePresence>
         </div>
       </div>
     </div>

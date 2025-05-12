@@ -72,7 +72,7 @@
   border: none;
   cursor: pointer;
   font-weight: 600;
-  font-size: 1em;
+  font-size: 1.2em;
   border-bottom: 2px solid transparent;
   transition: border-color 0.3s ease;
 }
@@ -87,17 +87,14 @@
   gap: 12px;
 }
 
-.list-notification-wrapper {
-  overflow: hidden;
-  border-radius: 10px;
-  background-color: #f7f7f7;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-}
 
 .list-notification-item {
   padding: 16px;
   display: flex;
   align-items: center;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .list-notification-message {
@@ -191,11 +188,8 @@
     padding: 12px 10px;
   }
 
-  .list-notification-wrapper {
-    flex-direction: column;
-  }
-
   .list-notification-item {
+    flex-direction: column;
     padding: 10px;
   }
 
