@@ -9,6 +9,7 @@ import List_Notification from './pages/list_notification/List_Notification';
 import ListObject from './pages/list-object/LIst_Objects';
 import Information from './pages/public/information/Information';
 import Profile from './pages/profile/Profile';
+// import Pengaturan from './pages/pengaturan/Pengaturan';
 
 function App() {
   
@@ -77,6 +78,14 @@ function App() {
                     </MainLayout>
                   }
                 />
+                {/* <Route
+                  path="/pengaturan"
+                  element={
+                    <MainLayout>
+                      <Pengaturan />
+                    </MainLayout>
+                  }
+                /> */}
                 
             </Routes>
         </Router>

@@ -12,13 +12,13 @@ const List_Notification = () => {
     <div className="section-list-notification">
       <div className="container-title-and-path-list-notification">
         <div className="container-title-list-notification">
-          <h2>List-Notification</h2>
+          <h2>Notification</h2>
         </div>
         <div className="container-path-list-notification">
           <ul className="unordered-list-list-notification">
             <li className="list-list-notification">Users</li>
             <li className="list-list-notification"><span>/</span> project</li>
-            <li className="list-list-notification"><span>/</span> list-notification</li>
+            <li className="list-list-notification"><span>/</span> notification</li>
           </ul>
         </div>
       </div>

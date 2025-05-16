@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import "./List_Table.css";
 import Delete_Table from '../../components/modal-list-table/delete_table/Delete_Table';
 import Edit_Table from '../../components/modal-list-table/edit_table/Edit_Table';
+import Add_New_Table from '../../components/modal-list-table/add_new_table/Add_New_Table';
 
 const ListTable = () => {
     return <Container_List_Table />;
@@ -34,6 +35,8 @@ const Container_List_Table = () => {
     const [selectedTable, setSelectedTable] = useState(null);
 
     const [showEditModal, setShowEditModal] = useState(false);
+
+    const [showAddModal, setShowAddModal] = useState(false);
 
 
 
@@ -70,7 +73,9 @@ const Container_List_Table = () => {
                     />
                 </div>
                 <div className="list-table-header-bottom">
-                    <button className="btn-create-list-table">Add New Table</button>
+                    <button className="btn-create-list-table" onClick={() => setShowAddModal(true)}>
+                        Add New Table
+                    </button>
                 </div>
                 
             </div>
@@ -154,6 +159,14 @@ const Container_List_Table = () => {
                     onClose={() => setShowEditModal(false)}
                 />
             )}
+
+            {showAddModal && (
+            <Add_New_Table
+                show={showAddModal}
+                setShow={setShowAddModal}
+            />
+            )}
+
 
         </div>
 

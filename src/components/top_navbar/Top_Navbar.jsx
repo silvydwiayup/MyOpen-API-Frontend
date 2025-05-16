@@ -96,10 +96,12 @@ const Container_Top_Navbar = () => {
                       Lihat Profil
                   </Link>
                 </li>
-                <li>
+                {/* <li>
+                  <Link to="/pengaturan" className="dropdown-link">
                     <FiSettings className="menu-icon-top-navbar" />
                     Pengaturan
-                </li>
+                  </Link>
+                </li> */}
                 <li>
                     <FiLogOut className="menu-icon-top-navbar" />
                     Logout

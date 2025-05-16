@@ -318,6 +318,28 @@
         overflow-y: auto;
         max-height: 90vh;
     }
+    .container-title-and-path-list-table {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5em;
+        height: auto;
+        margin-bottom: 1.5em;
+        padding-top: 1.2em; 
+    }
+
+    .container-title-list-table {
+        margin-top: 0.5em;
+    }
+
+    .container-path-list-table {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .unordered-list-list-table {
+        flex-wrap: wrap;
+        font-size: 0.85em;
+    }
 
     .table-row-head-list-table-body {
         font-size: var(--font-sm);

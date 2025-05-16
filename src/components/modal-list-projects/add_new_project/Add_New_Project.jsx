@@ -12,7 +12,7 @@ const Add_New_Project = ({ show, setShow }) => {
     return (
         <div className="modal-overlay-add-new-project">
             <div className="modal-content-add-new-project">
-                <button className="btn-close-top-right" onClick={handleClose}>×</button>
+                <button className="btn-close-top-right-add-new-project" onClick={handleClose}>×</button>
                 <h3>Add New Project</h3>
                 <div className="input-group-add-new-project">
                     <label htmlFor="projectName">Project Name</label>
@@ -26,8 +26,8 @@ const Add_New_Project = ({ show, setShow }) => {
                 </div>
 
                 <div className="modal-buttons-add-new-project">
-                    <button className="btn-close" onClick={handleClose}>Cancel</button>
-                    <button className="btn-add">Add New Project</button>
+                    <button className="btn-close-add-new-project" onClick={handleClose}>Cancel</button>
+                    <button className="btn-add-add-new-project">Add New Project</button>
                 </div>
 
             </div>
