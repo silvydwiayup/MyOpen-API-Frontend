@@ -17,13 +17,13 @@ function App() {
     <Router>
             <Routes>
                 <Route
-                    path="/information"
+                    path="/"
                     element={
                             <Information />
                     }
                 />
                 <Route
-                    path="/"
+                    path="/dashboard"
                     element={
                         <MainLayout>
                             <Dashboard />
